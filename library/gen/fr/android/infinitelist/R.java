@@ -8,16 +8,26 @@
 package fr.android.infinitelist;
 
 public final class R {
+    public static final class animator {
+        public static int anim_refresh=0x7f040000;
+    }
     public static final class attr {
     }
     public static final class drawable {
         public static int ic_launcher=0x7f020000;
+        public static int ic_refresh_dark=0x7f020001;
+        public static int ic_refresh_light=0x7f020002;
+    }
+    public static final class id {
+        public static int refresh_image=0x7f060000;
+        public static int refresh_label=0x7f060001;
     }
     public static final class layout {
-        public static int main=0x7f030000;
+        public static int refresh_view=0x7f030000;
     }
     public static final class string {
-        public static int app_name=0x7f040001;
-        public static int hello=0x7f040000;
+        public static int app_name=0x7f050001;
+        public static int hello=0x7f050000;
+        public static int refresh_text_label=0x7f050002;
     }
 }
