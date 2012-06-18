@@ -1,4 +1,3 @@
-
 #InfiniteListView
 The **InfiniteListView** is a custom **ListView** for **Android** app.
 It's allow to automatically load an action when the user scrolls to the end of the list.
@@ -17,33 +16,30 @@ Just read the sample provide in this repository
 
 ## Use it in your code
 #### Init your InfiniteListView 
-<code>
-mInfiniteListView = (InfiniteListView) findViewById(R.id.infiniteListView1);
-</code>
+	mInfiniteListView = (InfiniteListView) findViewById(R.id.infiniteListView1);
+
 
 #### Define an OnListEnds listener 
-mInfiniteListView.setOnListEnds(new OnListEnds() {
+	mInfiniteListView.setOnListEnds(new OnListEnds() {
 
-			/**
-			 * Fires when the isEnd method return true
-			 */
-			public void onStartRefresh() {
-				updateList();
-			}
+		/**
+		 * Fires when the isEnd method return true
+		 */
+		public void onStartRefresh() {
+			updateList();
+		}
 
-			/**
-			 * Define the rule to use to fire onStartRefresh
-			 */
-			public boolean isEnd(int pFirstVisibleItem, int pVisibleItemCount, int pTotalItemCount) {
-				if (pFirstVisibleItem + pVisibleItemCount + 5 > pTotalItemCount) {
-					// the end of the list is near when there's no more 2 items available
-					return true;
-				}
-				return false;
+		/**
+		 * Define the rule to use to fire onStartRefresh
+		 */
+		public boolean isEnd(int pFirstVisibleItem, int pVisibleItemCount, int pTotalItemCount) {
+			if (pFirstVisibleItem + pVisibleItemCount + 5 > pTotalItemCount) {
+				// the end of the list is near when there's no more 2 items available
+				return true;
 			}
-		});
+			return false;
+		}
+	});
 
 #### To notify the InfiniteListView that the loading is finished
-<code>
-mInfiniteListView.notifyRefreshIsFinished();
-</code>
+	mInfiniteListView.notifyRefreshIsFinished();
