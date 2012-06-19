@@ -10,12 +10,33 @@ import android.widget.SimpleAdapter;
 import fr.android.infinitelist.InfiniteListView;
 import fr.android.infinitelist.interfaces.OnListEnds;
 
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <elongeau@gmail.com> wrote this file. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return 
+ * elongeau
+ * ----------------------------------------------------------------------------
+ */
 /**
  * sample activity to show how works the InfiniteListView
  * 
  * @author elongeau
  */
 public class InfiniteListViewWithRefreshTextActivity extends Activity {
+
+	/**
+	 * used to save the state between configuration change
+	 * @author elongeau
+	 *
+	 */
+	public class Retainer {
+
+		public CopyOnWriteArrayList<HashMap<String, String>> retainedList;
+		public FillTheList mTask;
+
+	}
 
 	/**
 	 * THE InfiniteListView
@@ -59,10 +80,16 @@ public class InfiniteListViewWithRefreshTextActivity extends Activity {
 
 		mInfiniteListView.setOnListEnds(new OnListEnds() {
 
+			/**
+			 * Fires when the isEnd method return true
+			 */
 			public void onStartRefresh() {
 				updateList();
 			}
 
+			/**
+			 * Define the rule to use to fire onStartRefresh
+			 */
 			public boolean isEnd(int pFirstVisibleItem, int pVisibleItemCount, int pTotalItemCount) {
 				if (pFirstVisibleItem + pVisibleItemCount + 5 > pTotalItemCount) {
 					// the end of the list is near when there's no more 2 items available
