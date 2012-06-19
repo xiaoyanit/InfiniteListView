@@ -2,6 +2,13 @@
 The **InfiniteListView** is a custom **ListView** for **Android** app.
 It's allow to automatically load an action when the user scrolls to the end of the list.
 
+#License
+	THE BEER-WARE LICENSE" (Revision 42):
+	<longeaue@gmail.com> wrote this file. As long as you retain this notice you
+	can do whatever you want with this stuff. If we meet some day, and you think
+	this stuff is worth it, you can buy me a beer in return 
+	elongeau
+
 #How to use it ?
 Add the library folder as a project and define it as a library in your android project
 
